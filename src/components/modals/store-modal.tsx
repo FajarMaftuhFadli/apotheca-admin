@@ -60,7 +60,11 @@ export default function StoreModal() {
                 )}
               />
               <div className="flex w-full items-center justify-end space-x-2 pt-5">
-                <Button variant={"outline"} onClick={storeModal.onClose}>
+                <Button
+                  type="button"
+                  variant={"outline"}
+                  onClick={storeModal.onClose}
+                >
                   Cancel
                 </Button>
                 <Button type="submit">Continue</Button>
