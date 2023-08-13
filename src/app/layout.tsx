@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import ModalProvider from "@/providers/modal-provider";
+import ToasterProvider from "@/providers/toast-provider";
 
 export const metadata: Metadata = {
   title: "Apotheca Admin",
@@ -19,6 +20,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
