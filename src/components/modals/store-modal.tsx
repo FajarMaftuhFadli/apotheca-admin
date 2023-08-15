@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 
 import Modal from "@/components/ui/modal";
-import { useStoreModal } from "@/hooks/use-store-modal";
+import { useStoreModalStore } from "@/hooks/use-store-modal";
 import {
   Form,
   FormControl,
@@ -25,7 +25,7 @@ const formSchema = z.object({
 });
 
 export default function StoreModal() {
-  const storeModal = useStoreModal();
+  const storeModal = useStoreModalStore();
 
   const [loading, setLoading] = useState(false);
 

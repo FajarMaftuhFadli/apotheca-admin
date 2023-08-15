@@ -15,7 +15,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useStoreModal } from "@/hooks/use-store-modal";
+import { useStoreModalStore } from "@/hooks/use-store-modal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -40,7 +40,7 @@ export default function StoreSwitcher({
   className,
   items = [],
 }: StoreSwitcherProps) {
-  const storeModal = useStoreModal();
+  const storeModal = useStoreModalStore();
   const params = useParams();
   const router = useRouter();
 
