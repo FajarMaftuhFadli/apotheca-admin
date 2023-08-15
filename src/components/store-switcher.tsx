@@ -28,18 +28,21 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 
-type PopoverTriggerProps = React.ComponentPropsWithoutRef<
-  typeof PopoverTrigger
->;
+// type PopoverTriggerProps = React.ComponentPropsWithoutRef<
+//   typeof PopoverTrigger
+// >;
 
-interface StoreSwitcherProps extends PopoverTriggerProps {
-  items: Store[];
-}
+// interface StoreSwitcherProps extends PopoverTriggerProps {
+//   items: Store[];
+// }
 
 export default function StoreSwitcher({
   className,
   items = [],
-}: StoreSwitcherProps) {
+}: {
+  className: string;
+  items: Store[];
+}) {
   const storeModal = useStoreModalStore();
   const params = useParams();
   const router = useRouter();
