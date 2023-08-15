@@ -40,7 +40,7 @@ export default function StoreSwitcher({
   className,
   items = [],
 }: {
-  className: string;
+  className?: string;
   items: Store[];
 }) {
   const storeModal = useStoreModalStore();
