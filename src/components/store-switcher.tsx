@@ -15,9 +15,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useStoreModalStore } from "@/hooks/use-store-modal";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import {
   Command,
   CommandEmpty,
@@ -27,6 +25,8 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { useStoreModalStore } from "@/hooks/use-store-modal";
+import { cn } from "@/lib/utils";
 
 // type PopoverTriggerProps = React.ComponentPropsWithoutRef<
 //   typeof PopoverTrigger
@@ -82,8 +82,8 @@ export default function StoreSwitcher({
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandList>
-            <CommandInput placeholder="Search store..." />
-            <CommandEmpty>No store found.</CommandEmpty>
+            <CommandInput placeholder="Search store" />
+            <CommandEmpty>No store found</CommandEmpty>
             <CommandGroup heading="Stores">
               {formattedItems.map((item) => (
                 <CommandItem
@@ -114,7 +114,7 @@ export default function StoreSwitcher({
                   storeModal.onOpen();
                 }}
               >
-                <PlusCircle className="mr-2 h-4 w-4" /> Create a store
+                <PlusCircle className="mr-2 h-4 w-4" /> Create a new store
               </CommandItem>
             </CommandGroup>
           </CommandList>
