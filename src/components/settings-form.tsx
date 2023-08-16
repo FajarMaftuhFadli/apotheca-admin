@@ -47,6 +47,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
 
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const onSubmit = async (data: SettingsFormData) => {
     try {
@@ -127,7 +128,7 @@ export default function SettingsForm({ initialData }: SettingsFormProps) {
       <Separator />
       <ApiAlert
         title="NEXT_PUBLIC_API_URL"
-        description={`${useOrigin()}/api/${params.storeId}`}
+        description={`${origin}/api/${params.storeId}`}
         variant="public"
       />
     </>
