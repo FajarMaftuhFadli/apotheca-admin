@@ -16,7 +16,7 @@ export default async function NavBar() {
   });
 
   return (
-    <nav className="border-b">
+    <header className="border-b">
       <div className="flex h-16 items-center justify-between px-4">
         <div className="flex space-x-6">
           <StoreSwitcher items={stores} />
@@ -26,6 +26,6 @@ export default async function NavBar() {
           <UserButton afterSignOutUrl="/" />
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
