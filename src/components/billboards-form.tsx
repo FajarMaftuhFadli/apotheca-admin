@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import AlertModal from "@/components/modals/alert-modal";
 import ApiAlert from "@/components/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
+import ImageUpload from "./image-upload";
 
 interface BillboardsFormProps {
   initialData: Billboard | null;
@@ -124,6 +125,24 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-8"
         >
+          <FormField
+            control={form.control}
+            name="imageUrl"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Background image</FormLabel>
+                <FormControl>
+                  <ImageUpload
+                    value={field.value ? [field.value] : []}
+                    onChange={(url) => field.onChange(url)}
+                    disabled={loading}
+                    onRemove={() => field.onChange("")}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <div className="grid grid-cols-3 gap-8">
             <FormField
               control={form.control}
