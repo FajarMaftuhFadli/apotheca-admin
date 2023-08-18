@@ -1,3 +1,4 @@
+import BillboardsForm from "@/components/billboards-form";
 import prismadb from "@/lib/prismadb";
 
 export default async function Billboard({
@@ -11,5 +12,9 @@ export default async function Billboard({
     },
   });
 
-  return <>Existing Billboard: {billboard?.label}</>;
+  return (
+    <>
+      <BillboardsForm initialData={billboard} />
+    </>
+  );
 }
