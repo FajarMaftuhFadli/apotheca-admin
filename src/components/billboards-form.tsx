@@ -54,7 +54,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
   const router = useRouter();
   const origin = useOrigin();
 
-  const formAttributes = initialData
+  const dynamicAttributes = initialData
     ? {
         title: "Edit billboards",
         description: "Edit a billboard",
@@ -72,10 +72,16 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
     try {
       setLoading(true);
 
-      await axios.patch(`/api/stores/${params.storeId}`, data);
-      router.refresh();
+      if (initialData)
+        await axios.patch(`/api/stores/${params.storeId}/billboards`, data);
+      else
+        await axios.post(
+          `/api/stores/${params.storeId}/billboards/${params.billboardId}`,
+          data,
+        );
 
-      toast.success("Changes saved");
+      router.refresh();
+      toast.success(dynamicAttributes.toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
     } finally {
@@ -87,13 +93,17 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
     try {
       setLoading(true);
 
-      await axios.delete(`/api/stores/${params.storeId}`);
+      await axios.delete(
+        `/api/stores/${params.storeId}/billboards/${params.billboardId}`,
+      );
       router.refresh();
       router.push("/");
 
       toast.success("Store deleted");
     } catch (error) {
-      toast.error("Make sure you removed all products and categories first");
+      toast.error(
+        "Make sure you removed all categories using this billboard first",
+      );
     } finally {
       setLoading(false);
       setOpen(false);
@@ -110,8 +120,8 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
       />
       <div className="flex items-center justify-between">
         <Heading
-          title={formAttributes.title}
-          description={formAttributes.description}
+          title={dynamicAttributes.title}
+          description={dynamicAttributes.description}
         />
         {initialData && (
           <Button variant="destructive" size="sm" onClick={() => setOpen(true)}>
@@ -163,7 +173,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
             />
           </div>
           <Button disabled={loading} type="submit">
-            {formAttributes.action}
+            {dynamicAttributes.action}
           </Button>
         </form>
       </Form>
