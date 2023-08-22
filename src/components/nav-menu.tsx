@@ -13,19 +13,19 @@ export default function NavMenu({
 
   const routes = [
     {
-      href: `/${params.storeId}`,
+      href: `/stores/${params.storeId}`,
       label: "Dashboard",
-      active: pathName === `/${params.storeId}`,
+      active: pathName === `/stores/${params.storeId}`,
     },
     {
-      href: `/${params.storeId}/billboards`,
+      href: `/stores/${params.storeId}/billboards`,
       label: "Billboards",
-      active: pathName === `/${params.storeId}/billboards`,
+      active: pathName === `/stores/${params.storeId}/billboards`,
     },
     {
-      href: `/${params.storeId}/settings`,
+      href: `/stores/${params.storeId}/settings`,
       label: "Settings",
-      active: pathName === `/${params.storeId}/settings`,
+      active: pathName === `/stores/${params.storeId}/settings`,
     },
   ];
 

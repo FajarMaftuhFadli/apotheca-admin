@@ -80,7 +80,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
       else await axios.post(`/api/stores/${params.storeId}/billboards`, data);
 
       router.refresh();
-      router.push(`/${params.storeId}/billboards`);
+      router.push(`/stores/${params.storeId}/billboards`);
       toast.success(dynamicAttributes.toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
