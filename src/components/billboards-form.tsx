@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import AlertModal from "@/components/modals/alert-modal";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "./image-upload";
 
 interface BillboardsFormProps {
@@ -51,7 +50,6 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
 
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
 
   const dynamicAttributes = initialData
     ? {
