@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import AlertModal from "@/components/modals/alert-modal";
-import ImageUpload from "./image-upload";
+import ImageUpload from "@/components/image-upload";
 
 interface BillboardsFormProps {
   initialData: Billboard | null;

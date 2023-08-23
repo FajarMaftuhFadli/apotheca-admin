@@ -6,10 +6,11 @@ import { useParams, useRouter } from "next/navigation";
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Billboard } from "@prisma/client";
+
+import { BillboardsColumn } from "./columns";
 
 interface BillboardClientProps {
-  data: Billboard[];
+  data: BillboardsColumn[];
 }
 
 export default function BillboardClient({ data }: BillboardClientProps) {

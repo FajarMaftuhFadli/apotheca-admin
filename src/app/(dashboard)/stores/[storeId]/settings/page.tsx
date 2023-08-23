@@ -1,4 +1,4 @@
-import SettingsForm from "@/components/settings-form";
+import SettingsForm from "./settings-form";
 import prismadb from "@/lib/prismadb";
 import { redirect } from "next/navigation";
 
