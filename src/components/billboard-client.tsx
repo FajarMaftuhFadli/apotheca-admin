@@ -6,8 +6,13 @@ import { useParams, useRouter } from "next/navigation";
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Billboard } from "@prisma/client";
 
-export default function BillboardClient() {
+interface BillboardClientProps {
+  data: Billboard[];
+}
+
+export default function BillboardClient({ data }: BillboardClientProps) {
   const params = useParams();
   const router = useRouter();
 
@@ -15,7 +20,7 @@ export default function BillboardClient() {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title="Billboards (0)"
+          title={`Billboards (${data.length})`}
           description="Manage billboards for your store"
         />
         <Button
@@ -27,6 +32,9 @@ export default function BillboardClient() {
         </Button>
       </div>
       <Separator />
+      {data.map((billboard, i) => (
+        <div key={i}>{billboard.label}</div>
+      ))}
     </>
   );
 }
