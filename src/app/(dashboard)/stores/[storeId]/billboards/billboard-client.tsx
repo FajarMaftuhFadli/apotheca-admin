@@ -6,8 +6,9 @@ import { useParams, useRouter } from "next/navigation";
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import DataTable from "@/components/data-table";
 
-import { BillboardsColumn } from "./columns";
+import { BillboardsColumn, columns } from "./columns";
 
 interface BillboardClientProps {
   data: BillboardsColumn[];
@@ -33,9 +34,7 @@ export default function BillboardClient({ data }: BillboardClientProps) {
         </Button>
       </div>
       <Separator />
-      {data.map((billboard, i) => (
-        <div key={i}>{billboard.label}</div>
-      ))}
+      <DataTable columns={columns} data={data} />
     </>
   );
 }

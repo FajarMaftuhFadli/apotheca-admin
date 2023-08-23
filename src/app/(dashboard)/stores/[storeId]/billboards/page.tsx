@@ -22,7 +22,7 @@ export default async function Billboards({
     (billboard) => ({
       id: billboard.id,
       label: billboard.label,
-      createdAt: format(billboard.createdAt, "dd MM yyyy"),
+      createdAt: format(billboard.createdAt, "dd MMM yyyy"),
     }),
   );
 
