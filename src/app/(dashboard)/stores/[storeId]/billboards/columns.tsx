@@ -1,6 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import CellAction from "./cell-action";
 
 export type BillboardsColumn = {
   id: string;
@@ -16,5 +17,10 @@ export const columns: ColumnDef<BillboardsColumn>[] = [
   {
     accessorKey: "createdAt",
     header: "Date",
+  },
+  {
+    id: "actions",
+    header: "Actions",
+    cell: ({ row }) => <CellAction data={row.original} />,
   },
 ];
