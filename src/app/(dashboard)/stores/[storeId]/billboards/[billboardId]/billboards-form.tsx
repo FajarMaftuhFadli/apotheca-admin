@@ -94,7 +94,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
         `/api/stores/${params.storeId}/billboards/${params.billboardId}`,
       );
       router.refresh();
-      router.push("/");
+      router.push(`/stores/${params.storeId}/billboards/`);
 
       toast.success("Store deleted");
     } catch (error) {
