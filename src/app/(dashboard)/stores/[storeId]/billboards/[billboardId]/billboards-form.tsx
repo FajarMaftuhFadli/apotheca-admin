@@ -86,7 +86,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
     }
   };
 
-  const onConfirm = async () => {
+  const onDelete = async () => {
     try {
       setLoading(true);
 
@@ -113,7 +113,7 @@ export default function BillboardsForm({ initialData }: BillboardsFormProps) {
         isOpen={open}
         onClose={() => setOpen(false)}
         loading={loading}
-        onConfirm={onConfirm}
+        onConfirm={onDelete}
       />
       <div className="flex items-center justify-between">
         <Heading
